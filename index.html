@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IP / CIDR Calculator</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>IP / CIDR Calculator</h1>
+    
+    <div class="card">
+      <div class="ip-input-container">
+        <input type="number" id="octet1" class="octet-input octet-1" min="0" max="255" value="10">
+        <span class="separator">.</span>
+        <input type="number" id="octet2" class="octet-input octet-2" min="0" max="255" value="88">
+        <span class="separator">.</span>
+        <input type="number" id="octet3" class="octet-input octet-3" min="0" max="255" value="135">
+        <span class="separator">.</span>
+        <input type="number" id="octet4" class="octet-input octet-4" min="0" max="255" value="144">
+        <span class="separator">/</span>
+        <input type="number" id="cidrPrefix" class="octet-input cidr-input" min="0" max="32" value="28">
+      </div>
+
+      <div class="binary-container" id="binaryContainer">
+        <!-- Binary representation will be inserted here by JavaScript -->
+      </div>
+
+      <div class="results-grid">
+        <div class="result-item">
+          <div id="netmask" class="result-value">255.255.255.240</div>
+          <div class="result-label">Netmask</div>
+        </div>
+        <div class="result-item">
+          <div id="cidrBaseIp" class="result-value">10.88.135.144</div>
+          <div class="result-label">CIDR Base IP</div>
+        </div>
+        <div class="result-item">
+          <div id="broadcastIp" class="result-value">10.88.135.159</div>
+          <div class="result-label">Broadcast IP</div>
+        </div>
+      </div>
+
+      <div class="results-grid">
+        <div class="result-item">
+          <div id="count" class="result-value">16</div>
+          <div class="result-label">Count</div>
+        </div>
+        <div class="result-item">
+          <div id="firstUsableIp" class="result-value">10.88.135.145</div>
+          <div class="result-label">First Usable IP</div>
+        </div>
+        <div class="result-item">
+          <div id="lastUsableIp" class="result-value">10.88.135.158</div>
+          <div class="result-label">Last Usable IP</div>
+        </div>
+      </div>
+
+      <div class="button-container">
+        <button id="copyCidr" class="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          Copy CIDR
+        </button>
+        <button id="copyShareLink" class="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          Copy Share Link
+        </button>
+      </div>
+    </div>
+
+    <div>
+      <p class="info-text">
+        CIDR (Classless Inter-Domain Routing) notation is a compact method for specifying IP address ranges and network masks. It is widely used in network configuration and management.
+      </p>
+      <p class="info-text">
+        An IP address consists of 4 octets, each containing 8 bits that represent values from 0 to 255. In CIDR notation, a forward slash (/) followed by a number indicates the length of the network prefix in bits.
+      </p>
+      <p class="info-text">
+        This prefix length determines the network mask and the number of available host addresses within the specified IP range. This calculator helps you visualize and understand these CIDR blocks, making network planning and configuration easier.
+      </p>
+      <p class="footer">
+        Created by <a href="sinzn.fun">Shivam Singh</a> Source available on <a href="https://github.com/sinzn/cidr">Github</a>.
+      </p>
+    </div>
+  </div>
+  <script src="./script.js"></script>
+</body>
+</html>
